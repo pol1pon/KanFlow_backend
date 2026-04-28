@@ -6,16 +6,15 @@ export class CreateCollectionDTO {
   type: Type;
 
   @IsString()
-  title: string;
+  title: string
 
   @IsString()
-  description: string; // Исправлена опечатка
-
-  @IsOptional() // Позволяет полю быть null или отсутствовать
+  description: string
+  @IsOptional()
   @IsNumber()
-  team_?: number | null;
+  team_?: number | null
 
   @IsOptional()
   @IsNumber()
-  user_?: number | null;
+  user_?: number | null
 }

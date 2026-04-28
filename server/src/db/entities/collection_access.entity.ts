@@ -2,22 +2,23 @@ import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateCol
 import { User } from "./user.entity";
 import { Team } from "./team.entity";
 import { Collection } from "./collection.entity";
+import { AccessCollection } from "../json_interface/collection-access";
 
 @Entity('collection_access')
 export class Collection_access{
     @PrimaryGeneratedColumn()
         id: number
-    @ManyToOne(() => User, user => user.id)
-        public user_ : User
+    @ManyToOne(() => User, user => user.id, {nullable: true})
+        public user_ : User | null
 
-    @ManyToOne(() => Team, team => team.id)
-        public team_ : Team
+    @ManyToOne(() => Team, team => team.id, {nullable: true})
+        public team_ : Team | null
     @ManyToOne(()=> Collection, collect => collect.id, { 
     onDelete: 'CASCADE'
 })
         public collection_ : Collection
-    @Column('json')
-        access: any
+    @Column('jsonb')
+        access: AccessCollection
     @CreateDateColumn()
         createdAt: Date;
     @UpdateDateColumn()

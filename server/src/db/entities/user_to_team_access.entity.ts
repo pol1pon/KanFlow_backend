@@ -10,7 +10,7 @@ export class User_to_team_access{
         public user_ : User
     @ManyToOne(() => Team, team => team.id)
         public team_ : Team
-    @Column('json')
+    @Column('jsonb')
         access: any
     @CreateDateColumn()
         createdAt: Date;

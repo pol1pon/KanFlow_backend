@@ -1,6 +1,6 @@
 import { IsBoolean } from "class-validator"
 
-export class AccessToCollectionDTO{
+export class AccessCollection {
     @IsBoolean()
     CanRead: boolean
     @IsBoolean()
