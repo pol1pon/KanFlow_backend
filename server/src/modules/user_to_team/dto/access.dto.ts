@@ -1,7 +1,7 @@
 
 import { IsBoolean, IsOptional } from 'class-validator';
 
-export class AccessPermissionsDto {
+export class AccessToTeamPermissionsDto {
     @IsBoolean()
     canEdit: boolean;
     @IsBoolean()

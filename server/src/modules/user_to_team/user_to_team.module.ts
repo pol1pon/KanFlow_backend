@@ -7,7 +7,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
-    // ВАЖНО: Регистрируем репозитории для этого модуля
     TypeOrmModule.forFeature([User_to_team_access, Team])
   ],
   controllers: [AccessController],

@@ -1,6 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne} from "typeorm";
 import { User } from "./user.entity";
 import { Team } from "./team.entity";
+import { Collection } from "./collection.entity";
 
 @Entity('collection_access')
 export class Collection_access{
@@ -11,8 +12,10 @@ export class Collection_access{
 
     @ManyToOne(() => Team, team => team.id)
         public team_ : Team
-    @Column()
-        collection_id: number
+    @ManyToOne(()=> Collection, collect => collect.id, { 
+    onDelete: 'CASCADE'
+})
+        public collection_ : Collection
     @Column('json')
         access: any
     @CreateDateColumn()

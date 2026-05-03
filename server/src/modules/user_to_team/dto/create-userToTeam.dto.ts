@@ -1,6 +1,6 @@
 import { Type } from "class-transformer";
 import { IsInt, IsObject, ValidateNested } from "class-validator";
-import { AccessPermissionsDto } from "./access.dto";
+import { AccessToTeamPermissionsDto } from "./access.dto";
 
 
 export class CreateAccessDto {
@@ -12,8 +12,8 @@ export class CreateAccessDto {
 
     @IsObject()
     @ValidateNested()
-    @Type(() => AccessPermissionsDto)
-    access: AccessPermissionsDto;
+    @Type(() => AccessToTeamPermissionsDto)
+    access: AccessToTeamPermissionsDto;
 }
 
 
