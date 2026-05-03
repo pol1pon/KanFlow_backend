@@ -29,12 +29,12 @@ export class TasksGateway implements OnGatewayInit, OnGatewayConnection, OnGatew
     console.log(`❌ Клиент отключился: ${client.id}`);
   }
 
-  @SubscribeMessage('joinCollection')
+@SubscribeMessage('joinCollection')
   handleJoinCollection(
     @MessageBody() collection_: number,
     @ConnectedSocket() client: Socket,
   ) {
-    const roomName = `collection_id${collection_}`;
+    const roomName = `collection_${collection_}`; 
     client.join(roomName);
     console.log(`🚪 Клиент ${client.id} зашел в комнату: ${roomName}`);
   }
